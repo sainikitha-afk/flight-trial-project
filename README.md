@@ -25,3 +25,28 @@ python -m venv venv
 venvScriptsactivate
 pip install -r requirements.txt
 uvicorn mainapp --reload
+
+
+# Flight Telemetry Full Stack App - Setup Guide
+
+## Backend
+1. Open terminal in backend folder
+2. Create virtual environment:
+   python -m venv venv
+3. Activate venv:
+   venv\Scripts\activate  (Windows)
+4. Install dependencies:
+   pip install -r requirements.txt
+5. Run FastAPI backend:
+   uvicorn main:app --reload
+
+## MongoDB
+- Install local MongoDB or run via Docker:
+  docker run -d --name mongodb -p 27017:27017 mongo:latest
+
+## Frontend
+1. Open terminal in frontend folder
+2. Install dependencies:
+   npm install
+3. Run frontend:
+   npm start
