@@ -1,0 +1,2 @@
+FlightID,Speed,Altitude,BrakeTemp,Current_A,Voltage_V,FuelFlow,Pressure_Pa,Temp_C
+F001_user1,470,10100,210,225,116,2.8,96500,47

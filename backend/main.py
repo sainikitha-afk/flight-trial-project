@@ -10,6 +10,8 @@ import csv
 from io import StringIO
 import contextlib
 import io
+import re
+
 
 app = FastAPI()
 
@@ -39,9 +41,17 @@ class UserData(BaseModel):
 # ---------- AUTH ----------
 @app.post("/register/")
 def register_user(user: UserData):
+    # ✅ Check if email ends with @gov.in
+    if not user.email.endswith("@gov.in"):
+        raise HTTPException(status_code=400, detail="Only @gov.in emails are allowed")
+
     if users_collection.find_one({"email": user.email}):
         raise HTTPException(status_code=400, detail="Email already registered")
-    users_collection.insert_one({"email": user.email, "password": hash_password(user.password)})
+    
+    users_collection.insert_one({
+        "email": user.email,
+        "password": hash_password(user.password)
+    })
     return {"message": "User registered successfully"}
 
 @app.post("/login/")

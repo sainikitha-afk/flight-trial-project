@@ -1,0 +1,2 @@
+FlightID,Speed,Altitude,BrakeTemp,Current_A,Voltage_V,FuelFlow,Pressure_Pa,Temp_C
+,450,10000,200,220,115,2.5,95000,45
